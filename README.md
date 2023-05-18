@@ -3,7 +3,9 @@ CoAuthorly -  It is real-time-ui updating co-authoring app made with React, Fire
 
 
 Upon extracting zip file, open the folder in the command prompt and type the following command:
+
 ```cd djangoapp```
+
 ```python manage.py runserver```
 
 
