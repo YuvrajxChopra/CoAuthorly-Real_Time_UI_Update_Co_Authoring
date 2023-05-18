@@ -1,4 +1,4 @@
-# CoAuthorly-Real_Time_UI_Update_Co_Authoring
+# CoAuthorly - Real Time UI Update Co-Authoring Web App
 CoAuthorly -  It is real-time-ui updating co-authoring app made with React, Firebase Database &amp; Django.
 
 
