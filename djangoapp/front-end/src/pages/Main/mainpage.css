@@ -1,0 +1,299 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+    box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
+.MainPageMainDiv body,
+.MainPageMainDiv {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    font-size: 16px;
+    background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+}
+
+.MainPageMainDiv button {
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    color: #08c;
+}
+
+.MainPageMainDiv button:hover {
+    color: #04c;
+}
+
+.MainPageMainDiv {
+    display: flex;
+    border-top: 1px solid #343541;
+    padding: 10px;
+}
+
+.NavbarforProject {
+    display: flex;
+    flex-direction: flex-end;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+.NavbarforProject .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: min-content;
+  }
+  
+  .NavbarforProject .back-button:hover {
+    background-color: rgb(79, 79, 79);
+  }
+
+  .NavbarforProject.back-button:active {
+    background-color: #1565C0;
+  }
+  
+  .NavbarforProject .back-icon {
+    margin-right: 5px;
+  }
+
+.NavbarforProject div {
+    display: flex;
+    flex-direction: flex-end;
+    list-style-type: none;
+    gap: 25px;
+}
+
+
+
+.NavbarforProject span {
+    font-size: medium;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.NavbarforProject .projectname {
+    font-size: large;
+    font-weight: bold;
+}
+
+.NavbarforProject button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 200px;
+}
+
+.NavbarforProject button:hover{
+    background-color: #45a049;
+}
+
+.NavbarforProject .projectname{
+    font-size: xx-large;
+}
+
+/* SIDEBAR STYLES */
+
+.MainPageMainDiv .app-sidebar {
+    width: 25%;
+    height: 100vh;
+    border-right: 1px solid #343541;
+    padding-right: 20px;
+}
+
+.MainPageMainDiv .app-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    margin-bottom: 1%;
+}
+
+.MainPageMainDiv .app-sidebar-header h1 {
+    margin: 0;
+}
+
+.MainPageMainDiv .app-sidebar-header button{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #2196F3;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.MainPageMainDiv .app-sidebar-header button:hover{
+    background-color: #1976D2;
+}
+
+.MainPageMainDiv .app-sidebar-notes {
+    height: calc(100vh - 78px);
+    padding: 3%;
+    overflow-y: auto;
+}
+
+.MainPageMainDiv .app-sidebar-note {
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.MainPageMainDiv .sidebar-note-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.MainPageMainDiv .app-sidebar-note button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: crimson;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.MainPageMainDiv .app-sidebar-note{
+    border: 1px solid #343541;
+    margin: 5px;
+}
+
+.MainPageMainDiv .app-sidebar-note button:hover{
+    background-color: #d32f2f;
+}
+
+.MainPageMainDiv .app-sidebar-note p {
+    margin: 10px 0;
+}
+
+.MainPageMainDiv .app-sidebar-note small {
+    display: block;
+    color: #ffffff;
+}
+
+.MainPageMainDiv .app-sidebar-note:hover {
+    background: #343541;
+}
+
+.MainPageMainDiv .app-sidebar-note.active,
+.MainPageMainDiv.app-sidebar-note.active small {
+    background: #343541;
+    color: white;
+}
+
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+
+.MainPageMainDiv .app-main {
+    width: 75%;
+    height: 100vh;
+}
+
+.MainPageMainDiv .app-main-note-edit,
+.app-main-note-preview {
+    height: 50vh;
+}
+
+.MainPageMainDiv .no-active-note {
+    width: 70%;
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+    font-size: 2rem;
+    color: #999;
+}
+
+.MainPageMainDiv .deadlinefield {
+    display: flex;
+}
+
+.MainPageMainDiv .deadlinefield label{
+    font-size: large;
+    font-weight: bold;
+    padding: 1%;
+}
+
+.MainPageMainDiv .radiobtns {
+    display: flex;
+    margin-left: 1%;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.MainPageMainDiv .radiobtns input[type="radio"] {
+    display: none;
+    height: calc(50vh - 130px);
+}
+
+.MainPageMainDiv .radiobtns label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.MainPageMainDiv .radiobtns input[type="radio"]:checked+label {
+    background-color: #CCCCCC   ;
+    /* Example: Changing background color when selected */
+    color: #000000;
+    /* Example: Changing text color when selected */
+}
+
+/* Editing */
+.MainPageMainDiv .app-main-note-edit {
+    padding: 25px;
+}
+
+.MainPageMainDiv .app-main-note-edit input,
+textarea {
+    display: block;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    width: 100%;
+    height: calc(71vh - 130px);
+    padding: 10px;
+    resize: none;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.MainPageMainDiv .app-main-note-edit input {
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+}

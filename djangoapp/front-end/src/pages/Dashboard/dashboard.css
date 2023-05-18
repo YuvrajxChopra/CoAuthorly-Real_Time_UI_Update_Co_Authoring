@@ -1,0 +1,193 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #343541;
+}
+
+.dashboard a{
+  color: white;
+  text-decoration: none;
+}
+
+.dashboard .navbar-left {
+  flex: 1;
+}
+
+.dashboard .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard .navbar-logo{
+  display: flex;
+  gap: 5px;
+}
+
+.dashboard .navbar-logo h1 {
+  margin: 0;
+  margin-top: 2%;
+}
+
+.dashboard .navbar-welcome p {
+  margin: 0;
+}
+
+.dashboard .welcomemsg {
+  font-weight: bold;
+  font-size: large;
+}
+
+.dashboard .project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.dashboard .project-card:hover {
+  border: 1px solid white;
+}
+
+.dashboard .create-project-card:hover {
+  border: 1px solid white;
+}
+
+.dashboard .project-card,
+.create-project-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  background-color: #343541;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dashboard .project-card h3,
+.create-project-card h3 {
+  margin: 0;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.dashboard .logout-button {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard .logout-button:hover {
+  background-color: #cc0000;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #343541;
+  position: relative;
+  padding: 50px;
+  width: 25%;
+  max-width: 80%;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content div {
+  margin-bottom: 10px;
+}
+
+.modal-content label {
+  display: block;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  margin: 5px;
+  padding: 10px;
+  background-color: #343541;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  width: 100%;
+  height: 60px;
+  border: 2px solid white;
+}
+
+.modal-buttons .createbtn {
+  color: white;
+  background-color: #343541;
+}
+
+
+.modal-buttons .createbtn:hover {
+  background-color: white;
+  color: #343541;
+}
+
+.modal-buttons button:active {
+  background-color: rgb(217, 217, 217);
+}
+
+.modal .crossbtn {
+  position: absolute;
+  left: 150;
+  font-weight: bolder;
+  font-size: x-large;
+  top: 1px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.modal .crossbtn:hover {
+  color: rgb(212, 212, 212);
+}

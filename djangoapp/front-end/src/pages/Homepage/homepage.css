@@ -1,0 +1,355 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    color: white;
+    background-color: rgb(31, 31, 31);
+}
+
+.HomePage {
+    background-image: url("./img/pattern.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.HomePage::before {
+    background-color: rgba(31, 31, 31, 0.5);
+}
+
+.HomePage .logo {
+    position: fixed;
+    padding: 1%;
+    padding-left: 2%;
+}
+
+.HomePage nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 100px;
+    user-select: none;
+}
+
+.HomePage nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 25px;
+}
+
+.HomePage .active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.HomePage li:hover {
+    color: rgb(221, 221, 221);
+}
+
+.HomePage nav ul li {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.HomePage .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+    padding-top: 50px;
+    height: 100%;
+}
+
+.HomePage .headings {
+    width: 50%;
+}
+
+.HomePage .headings p {
+    color: rgb(192, 192, 192);
+}
+
+.HomePage .headings .buttons {
+    margin: 50px;
+    font-size: 2rem;
+}
+
+.HomePage h1 {
+    margin: 0;
+    font-size: 3 rem;
+}
+
+.HomePage p {
+    font-size: 1.6rem;
+    font-weight: medium;
+    color: rgb(232, 232, 232);
+}
+
+.HomePage main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.HomePage .buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.HomePage .cta {
+    font-weight: bold;
+    padding: 20px 50px;
+}
+
+.HomePage .login {
+    background-color: #1F1F1F;
+    border: 2px solid white;
+    color: white;
+}
+
+.HomePage .login:hover {
+    background-color: white;
+    color: #1F1F1F;
+}
+
+.HomePage .register {
+    background-color: white;
+    border: 2px solid white;
+    color: #1F1F1F;
+}
+
+.HomePage .register:hover {
+    background-color: #1F1F1F;
+    color: white;
+}
+
+.HomePage figure {
+    margin-left: 10px;
+    width: 1200px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #343541;
+    border-radius: 50%;
+}
+
+.HomePage .me-img {
+    border: 5px solid black;
+    border-bottom-left-radius: 50%;
+}
+
+
+.HomePage .img-bg {
+    background-color: #343541;
+    position: relative;
+}
+
+.HomePage .circle1 {
+    position: absolute;
+    width: 100px;
+    background-color: white;
+    height: 100px;
+    border-radius: 50%;
+    top: 25px;
+    right: 25px;
+}
+
+.HomePage .circle2 {
+    position: absolute;
+    width: 100px;
+    background-color: white;
+    height: 100px;
+    border-radius: 50%;
+    bottom: 25px;
+    left: 25px;
+}
+
+.HomePage .img-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width:800px) {
+    .HomePage .content {
+        flex-direction: row;
+        margin: 80px;
+    }
+
+    .HomePage h1 {
+        font-size: 3.8rem;
+    }
+
+    .HomePage .headings {
+        margin: 25px;
+    }
+
+    .HomePage .cta {
+        padding: 20px 30px;
+        font-size: 1.2rem;
+    }
+
+    .HomePage .buttons {
+        margin: 25px;
+    }
+}
+
+.HomePage footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.HomePage footer .footertext {
+    font-size: small;
+}
+
+
+
+
+
+
+
+
+
+
+.meet-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80vh;
+    /* Adjust the height as needed */
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-member img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.team-member p {
+    margin-top: 10px;
+}
+
+.team-member p:first-child {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.meet-team h1 {
+    font-size: 3.4rem;
+    font-weight: bolder;
+    font-family: inherit;
+    margin-bottom: 5%;
+}
+
+.meet-team .MemberName {
+    font-weight: bolder;
+    font-size: x-large;
+    margin-top: 15%;
+}
+
+.meet-team .MemberDesc {
+    margin-top: 0%;
+    font-size: medium;
+}
+
+
+
+
+
+.about-us-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.headingsX {
+    text-align: center;
+}
+
+.contact-us-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.contact-us-container form {
+    width: 400px;
+}
+
+.contact-us-container .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-us-container label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contact-us-container input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-us-container textarea {
+    resize: vertical;
+    height: 100px;
+    min-height: 150px;
+}
+
+.contact-us-container button {
+    background-color: #1F1F1F;
+    border: 2px solid white;
+    color: white;
+    width: 100%;
+    padding: 2%;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.contact-us-container button:hover {
+    background-color: white;
+    color: #1F1F1F;
+    
+}
+
+.contact-us-container h1{
+    margin-bottom: 1%;
+    font-size: 3.2rem;
+}
