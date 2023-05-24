@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, set } from 'firebase/database';
-
+import React from 'react';
+//import { getDatabase, ref, set } from 'firebase/database'; { useState, useEffect }
+import { v4 as uuidv4 } from 'uuid';
 
 
 const Sidebar = ({ projectIndex, notes, setNotes, updatedNotes, activeNote, setActiveNote, setUpdatedNotes, onUpdateNote }) => {
-  const [id, setId] = useState('');
-
-  useEffect(() => {
-    setId((prevId) => (updatedNotes.length).toString());
-  }, [updatedNotes.length]);
-
+  
   const onAddNote = () => {
     const newNote = {
-      id: id,
+      id: uuidv4(),
       title: 'Untitled',
       description: '',
       tags: '',
@@ -24,21 +19,13 @@ const Sidebar = ({ projectIndex, notes, setNotes, updatedNotes, activeNote, setA
     setUpdatedNotes([...updatedNotes, newNote]);
     setActiveNote(newNote);
   };
-  const onDeleteNote = (note) => {
+  const onDeleteNote = (note) => {  
     if (window.confirm(`Are you sure you want to delete the note: ${note.title}?`)) {
       if (note.id === activeNote?.id) {
         setActiveNote(null);
       }
-      const database = getDatabase();
-      const noteRef = ref(database, `/projects/${projectIndex}/chapters/${note.id}`);
-      set(noteRef, null)
-        .then(() => {
-          const updatedUpdatedNotesList = updatedNotes.filter((n) => n.id !== note.id);
-          setUpdatedNotes(updatedUpdatedNotesList);
-        })
-        .catch((error) => {
-          console.log('Error deleting note:', error);
-        });
+      const updatedNotesList = updatedNotes.filter((n) => n.id !== note.id);
+      setUpdatedNotes(updatedNotesList);
     }
   };
 
