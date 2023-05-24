@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./mainpage.css";
 import Main from "./main";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "./sidebar";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import firebaseconfig from "./firebasedb/firebaseconfig";
 
 function MainPage() {
+  var error = false;
   const location = useLocation();
+  const navigate = useNavigate();
   const { projectName, username } = location.state || {};
-  const [projectIndex, setProjectIndex] = useState("");
+  if (username === "" || projectName === "" || username === undefined || projectName === undefined) {
+    error = true;
+    navigate("/Dashboard");
+  }
+  const [projectIndex, setProjectIndex] = useState(null);
   const [notes, setNotes] = useState([]);
   const [activeNote, setActiveNote] = useState(null);
   const [updatedNotes, setUpdatedNotes] = useState([]);
@@ -61,7 +67,7 @@ function MainPage() {
 
   const onUpdateNote = (updatedNote) => {
     const noteIndex = updatedNotes.findIndex((note) => note.id === updatedNote.id);
-    const updatedNotesList = [...notes];
+    const updatedNotesList = [...updatedNotes];
     if (noteIndex !== -1) {
       updatedNotesList[noteIndex] = updatedNote;
       setUpdatedNotes(updatedNotesList);
@@ -92,7 +98,7 @@ function MainPage() {
   useEffect(() => {
     const database = getDatabase(firebaseconfig);
     const databaseRef = ref(database, `projects/${projectIndex}/lastModifiedBy`);
-    
+
     const unsubscribe = onValue(databaseRef, (snapshot) => {
       const data = snapshot.val();
       setlastModifiedByUser(data);
@@ -100,45 +106,50 @@ function MainPage() {
     }, (error) => {
       console.error("Error fetching data from Firebase:", error);
     });
-  
+
     return () => {
       // Cleanup function
       unsubscribe();
     };
   }, [projectIndex]);
 
+  if (error === true) {
+    return (<h4 style={{ textAlign: "center" }}>redirecting...</h4>);
+  }
+  else {
 
-  return (
-    <div>
-      <nav className="NavbarforProject">
-        <div>
-          <Link to="/">
-            <button className="back-button" id="back-button">
-              <span className="back-icon">❮❮</span>
-            </button>
-          </Link>
-          <span className="projectname">{projectName}</span>
+    return (
+      <div>
+        <nav className="NavbarforProject">
+          <div>
+            <Link to="/">
+              <button className="back-button" id="back-button">
+                <span className="back-icon">❮❮</span>
+              </button>
+            </Link>
+            <span className="projectname">{projectName}</span>
+          </div>
+          <div>
+            <span>Last Modified by: {lastModifiedByUser}</span>
+            <button onClick={handleUpdateClick}>UPDATE</button>
+          </div>
+        </nav>
+        <div className="MainPageMainDiv">
+          <Sidebar
+            notes={notes}
+            setNotes={setNotes}
+            updatedNotes={updatedNotes}
+            activeNote={activeNote}
+            setActiveNote={setActiveNote}
+            setUpdatedNotes={setUpdatedNotes}
+            onUpdateNote={onUpdateNote}
+            projectIndex={projectIndex}
+          />
+          <Main notes={notes} activeNote={activeNote} onUpdateNote={onUpdateNote} />
         </div>
-        <div>
-          <span>Last Modified by: {lastModifiedByUser}</span>
-          <button onClick={handleUpdateClick}>UPDATE</button>
-        </div>
-      </nav>
-      <div className="MainPageMainDiv">
-        <Sidebar
-          notes={notes}
-          setNotes={setNotes}
-          updatedNotes={updatedNotes}
-          activeNote={activeNote}
-          setActiveNote={setActiveNote}
-          setUpdatedNotes={setUpdatedNotes}
-          onUpdateNote={onUpdateNote}
-          projectIndex={projectIndex}
-        />
-        <Main notes={notes} activeNote={activeNote} onUpdateNote={onUpdateNote} />
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default MainPage;
