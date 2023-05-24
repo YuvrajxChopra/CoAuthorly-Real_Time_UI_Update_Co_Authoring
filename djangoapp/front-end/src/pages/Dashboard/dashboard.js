@@ -5,10 +5,16 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { getDatabase, ref, get, set } from "firebase/database";
 
 function Dashboard() {
+  var error = false;
   const location = useLocation();
   const navigate = useNavigate();
   const { username } = location.state || {};
+  if (username === "" || username === undefined) {
+    error = true;
+    navigate("/Login");
+  }
   const [projects, setProjects] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [projectName, setProjectName] = useState("");
@@ -105,6 +111,10 @@ function Dashboard() {
   const handleProjectClick = (projectName) => {
     navigate("/Main", { state: { projectName, username } });
   };
+  
+  const handleLogout = () => {
+    navigate("/Login");
+  }
 
   const Modal = () => {
     return (
@@ -144,43 +154,47 @@ function Dashboard() {
       </div>
     );
   };
-  
 
+  if (error === true) {
+    return (<h4 style={{ textAlign: "center" }}>redirecting...</h4>);
+  }
+  else {
 
-  return (
-    <div>
-      <div className="dashboard">
-        <nav className="navbar">
-          <Link to="/">
-            <div className="navbar-logo">
-              <img src={logopath} alt="logo" height={50} />
-              <h1>CoAuthorly</h1>
+    return (
+      <div>
+        <div className="dashboard">
+          <nav className="navbar">
+            <Link to="/">
+              <div className="navbar-logo">
+                <img src={logopath} alt="logo" height={50} />
+                <h1>CoAuthorly</h1>
+              </div>
+            </Link>
+            <div className="navbar-welcome">
+              <p className="welcomemsg">Welcome, {username}!</p>
             </div>
-          </Link>
-          <div className="navbar-welcome">
-            <p className="welcomemsg">Welcome, {username}!</p>
-          </div>
-          <button className="logout-button">Log Out</button>
-        </nav>
+            <button className="logout-button" onClick={handleLogout}>Log Out</button>
+          </nav>
 
-        <div className="project-cards">
-          <div className="create-project-card" onClick={openModal}>
-            <h3>Create New Project</h3>
-          </div>
-          {projects.map((project, index) => (
-            <div
-              className="project-card"
-              key={index}
-              onClick={() => handleProjectClick(project.projecttitle)}
-            >
-              <h3>{project.projecttitle}</h3>
+          <div className="project-cards">
+            <div className="create-project-card" onClick={openModal}>
+              <h3>Create New Project</h3>
             </div>
-          ))}
+            {projects.map((project, index) => (
+              <div
+                className="project-card"
+                key={index}
+                onClick={() => handleProjectClick(project.projecttitle)}
+              >
+                <h3>{project.projecttitle}</h3>
+              </div>
+            ))}
+          </div>
         </div>
+        <Modal key={showModal ? "modal-open" : "modal-closed"} />
       </div>
-      <Modal key={showModal ? "modal-open" : "modal-closed"} />
-    </div>
-  );
+    );
+  }
 }
 
 export default Dashboard;
