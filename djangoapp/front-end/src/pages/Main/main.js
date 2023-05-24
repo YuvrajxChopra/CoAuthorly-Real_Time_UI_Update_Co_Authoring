@@ -16,18 +16,13 @@ const Main = ({ notes, activeNote, onUpdateNote }) => {
             setDescription(description || '');
             setTags(tags || '');
             setDeadline(deadline || '');
-            if(status === false){
-                setStatus("ongoing");
-            }
-            else if(status === true) {
-                setStatus("completed");
-            }
+            setStatus(status || '');
             setBody(body || '');
         }
     }, [activeNote, notes]);
 
     const onEditField = (field, value) => {
-        let updatedValue = value;
+        //let updatedValue = value;
       
         switch (field) {
           case 'title':
