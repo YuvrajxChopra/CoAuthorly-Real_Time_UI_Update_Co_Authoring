@@ -21,10 +21,14 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('Main', views.index),
-    path('Dashboard', views.index),
-    path('Login', views.index),
-    path('Register', views.index),
-    path('api/login', views.login_api),
+    path('Main/', views.index, name='main'),
+    path('Dashboard/', views.index, name='dashboard'),
+    path('Login/', views.index, name='login'),
+    path('Register/', views.index, name='register'),
+    path('api/login/', views.login_api, name='login_api'),
     path('api/example/', views.example, name='example'),
+    path('api/register/', views.register_api, name='register_api'),
+    path('api/projects/', views.projects_api, name='projects_api'),
+    path('api/project/<int:project_id>/', views.project_details_api, name='project_details_api'),
 ]
+
